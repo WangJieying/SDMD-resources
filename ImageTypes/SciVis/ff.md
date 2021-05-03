@@ -14,7 +14,7 @@
 
 *SDMD compression, SSIM = 0.987, CR = 1537.* 
 
-<img src="./Flame&Fluid/13.pdf" width = "400" align=center />
+<img src="./Flame&Fluid/13.png" width = "400" align=center />
 
 *SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.*
 
@@ -52,7 +52,7 @@
 
 *SDMD compression, SSIM = 0.963, CR = 305.* 
 
-<img src="./Flame&Fluid/1.pdf" width = "400" align=center />
+<img src="./Flame&Fluid/1.png" width = "400" align=center />
 
 *SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.*
 

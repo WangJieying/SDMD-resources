@@ -14,7 +14,7 @@
 
 *SDMD compression, SSIM = 0.982, CR = 395.* 
 
-<img src="./Isosurface/3.eps" width = "400" align=center />
+<img src="./Isosurface/3.png" width = "400" align=center />
 
 *SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.*
 
@@ -34,14 +34,5 @@
 *SDMD compression, SSIM = 0.984, CR = 544.* 
 
 <img src="./Isosurface/10.png" width = "400" align=center />
-
-*SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.*
-
-
-<img src="./Isosurface/0.992-818" width = "400" align=center />
-
-*SDMD compression, SSIM = 0.992, CR = 818.* 
-
-<img src="./Isosurface/11.png" width = "400" align=center />
 
 *SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.*
