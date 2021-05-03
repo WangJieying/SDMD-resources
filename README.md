@@ -9,3 +9,4 @@ This material shows the comparison of JPEG results with SDMD results for several
   - [Medical images](./medical.md)
   - [Background images](./background.md)
   - [Object rendering](./rendering.md)
+  - [Illustration](./illustration.md)
