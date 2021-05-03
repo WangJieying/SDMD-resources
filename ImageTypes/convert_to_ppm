@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cd Geometric
+for image in *.ppm
+do
+	NAME=$(echo "$image" | cut -f 1 -d '.')
+	convert $image $NAME.jpg
+	
+done
+
+
