@@ -12,7 +12,7 @@
 
 <img src="./ImageTypes/Geometric/0.995-3565" width = "400" align=center />
 
-*SDMD compression, SSIM = 0.995, CR = 3565. * 
+*SDMD compression, SSIM = 0.995, CR = 3565.* 
 
 <img src="./ImageTypes/Geometric/4.png" width = "400" align=center />
 
@@ -31,7 +31,7 @@
 
 <img src="./ImageTypes/Geometric/0.977-3015" width = "400" align=center />
 
-*SDMD compression, SSIM = 0.977, CR = 3015. * 
+*SDMD compression, SSIM = 0.977, CR = 3015.* 
 
 <img src="./ImageTypes/Geometric/6.png" width = "400" align=center />
 
@@ -50,7 +50,7 @@
 
 <img src="./ImageTypes/Geometric/0.96-753" width = "400" align=center />
 
-*SDMD compression, SSIM = 0.96, CR = 753. *
+*SDMD compression, SSIM = 0.96, CR = 753.*
 
 <img src="./ImageTypes/Geometric/3.png" width = "400" align=center />
 
@@ -69,7 +69,7 @@
 
 <img src="./ImageTypes/Geometric/0.99-8175" width = "400" align=center />
 
-*SDMD compression, SSIM = 0.99, CR = 8175. *
+*SDMD compression, SSIM = 0.99, CR = 8175.*
 
 <img src="./ImageTypes/Geometric/75.png" width = "400" align=center />
 
@@ -88,7 +88,7 @@
 
 <img src="./ImageTypes/Geometric/0.968-830" width = "400" align=center />
 
-*SDMD compression, SSIM = 0.968, CR = 830. *
+*SDMD compression, SSIM = 0.968, CR = 830.*
 
 <img src="./ImageTypes/Geometric/43.png" width = "400" align=center />
 
@@ -106,7 +106,7 @@
 
 <img src="./ImageTypes/Geometric/0.974-1063" width = "400" align=center />
 
-*SDMD compression, SSIM = 0.974, CR = 1063. *
+*SDMD compression, SSIM = 0.974, CR = 1063.*
 
 <img src="./ImageTypes/Geometric/1.png" width = "400" align=center />
 
