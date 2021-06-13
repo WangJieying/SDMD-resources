@@ -33,6 +33,19 @@
 
 <table>
     <tr>
+        <td ><center><img src="./VectorGraphics/6.jpg"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Original image. </center></td>
+        <td ><center><img src="./VectorGraphics/0.953-329.jpg">&emsp;&emsp;JPEG compression (quality = 10%), SSIM = 0.953, CR = 329.</center></td> 
+    </tr>
+    <tr>
+        <td ><center><img src="./VectorGraphics/0.971-406">&emsp;&emsp;&emsp;&emsp;SDMD compression, SSIM = 0.971, CR = 406.</center></td>
+        <td ><center><img src="./VectorGraphics/6.png">SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.</center></td>
+    </tr>
+</table>
+
+### Example 4
+
+<table>
+    <tr>
         <td ><center><img src="./VectorGraphics/3.jpg"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Original image. </center></td>
         <td ><center><img src="./VectorGraphics/0.978-421.jpg">&emsp;&emsp;JPEG compression (quality = 10%), SSIM = 0.978, CR = 421.</center></td> 
     </tr>
@@ -43,7 +56,7 @@
 </table>
 
 
-### Example 4
+### Example 5
 
 <table>
     <tr>
@@ -57,7 +70,7 @@
 </table>
 
 
-### Example 5
+### Example 6
 
 <table>
     <tr>
