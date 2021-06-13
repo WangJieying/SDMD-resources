@@ -6,6 +6,6 @@ This material shows the comparison of JPEG results with SDMD results for several
   - [Scientific visualization data](./scivis.md)
   - [Computer graphics](./cg.md)
   - [Medical images](./medical.md)
-  - [Abstract images](./abstract.md)
+  - [Graphics art images](./abstract.md)
   - [Cartoon images](./cartoon.md)
   
