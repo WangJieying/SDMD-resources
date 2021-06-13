@@ -9,7 +9,7 @@
     </tr>
     <tr>
         <td ><center><img src="./X-ray/0.961-523">&emsp;&emsp;&emsp;&emsp;SDMD compression, SSIM = 0.961, CR = 523.</center></td>
-        <td ><center><img src="./X-ray/2.jpg">SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.</center></td>
+        <td ><center><img src="./X-ray/2.png">SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.</center></td>
     </tr>
 </table>
 
