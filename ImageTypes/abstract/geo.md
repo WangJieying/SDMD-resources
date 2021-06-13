@@ -83,3 +83,17 @@
         <td ><center><img src="./Geometric/1.png">SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.</center></td>
     </tr>
 </table>
+
+
+### Example 7
+
+<table>
+    <tr>
+        <td ><center><img src="./Geometric/2.jpg"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Original image. </center></td>
+        <td ><center><img src="./Geometric/0.976-308.jpg">&emsp;&emsp;JPEG compression (quality = 10%), SSIM = 0.976, CR = 308.</center></td> 
+    </tr>
+    <tr>
+        <td ><center><img src="./Geometric/0.979-533">&emsp;&emsp;&emsp;&emsp;SDMD compression, SSIM = 0.979, CR = 533.</center></td>
+        <td ><center><img src="./Geometric/2.png">SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.</center></td>
+    </tr>
+</table>
