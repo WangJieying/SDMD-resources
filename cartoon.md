@@ -79,10 +79,10 @@
 <table>
     <tr>
         <td ><center><img src="./ImageTypes/Cartoon/5.jpg"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Original image. </center></td>
-        <td ><center><img src="./ImageTypes/Cartoon/0.98-367.jpg">&emsp;&emsp;JPEG compression (quality = 5%), SSIM = 0.98, CR = 367.</center></td> 
+        <td ><center><img src="./ImageTypes/Cartoon/0.980-367.jpg">&emsp;&emsp;JPEG compression (quality = 5%), SSIM = 0.98, CR = 367.</center></td> 
     </tr>
     <tr>
-        <td ><center><img src="./ImageTypes/Cartoon/0.98-520">&emsp;&emsp;&emsp;&emsp;SDMD compression, SSIM = 0.98, CR = 520.</center></td>
+        <td ><center><img src="./ImageTypes/Cartoon/0.980-520">&emsp;&emsp;&emsp;&emsp;SDMD compression, SSIM = 0.98, CR = 520.</center></td>
         <td ><center><img src="./ImageTypes/Cartoon/5.png">SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.</center></td>
     </tr>
 </table>
