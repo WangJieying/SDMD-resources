@@ -41,3 +41,17 @@
         <td ><center><img src="./MRI/mri3.jpg">SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.</center></td>
     </tr>
 </table>
+
+
+### Example 4
+
+<table>
+    <tr>
+        <td ><center><img src="./MRI/4.jpg"> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Original image. </center></td>
+        <td ><center><img src="./MRI/0.952-448.jpg">&emsp;&emsp;JPEG compression (quality = 10%), SSIM = 0.952, CR = 448.</center></td> 
+    </tr>
+    <tr>
+        <td ><center><img src="./MRI/0.965-495">&emsp;&emsp;&emsp;&emsp;SDMD compression, SSIM = 0.965, CR = 495.</center></td>
+        <td ><center><img src="./MRI/4.png">SSIM vs. CR for SDMD (red filled dots) and JPEG (green asterisks) under several different quality settings.</center></td>
+    </tr>
+</table>
