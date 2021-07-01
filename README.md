@@ -16,6 +16,7 @@ This supplementary material shows the comparison of SDMD with JPEG for five imag
   
 ## 2. Boundary Y-structure elimination results
 
+For each image, we show the result without using the Y-removal method ('Original result') and with this scheme used ('Y-removal result') and also their SSIM vs. CR under several different quality settings. 
 
 ## 3. Source code
 
