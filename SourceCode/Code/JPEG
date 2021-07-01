@@ -1,0 +1,39 @@
+#!/bin/bash
+
+######clear all the output file####
+sed -i '1,$ d' ../outputFile/jpgRate.txt                  #implement in the pgm2jpg.m file
+sed -i '1,$ d' ../outputFile/JPGmsssim.txt                #implement in the ../msssim.m
+sed -i '1,$ d' ../outputFile/JPEGpsnr.txt
+######For nested loop#######
+cd ../Image
+a=0
+for file in *
+do
+	cd $file
+	for image in *.ppm
+	do
+	
+		echo $file ': ' $image >> ../../outputFile/jpgRate.txt
+		echo $file ': ' $image >> ../../outputFile/JPGmsssim.txt
+		echo $file ': ' $image >> ../../outputFile/JPEGpsnr.txt
+
+		sz_orig=$(stat -c '%s' $image)
+		
+		
+		cd ../../Code
+		
+		for quality in 10 20 30 40 50
+		do
+			convert ../Image/$file/$image -quality $quality output.jpg
+			
+			sz_out2=$(stat -c '%s' output.jpg)
+
+			echo "scale=4 ; $sz_orig / $sz_out2" | bc >> ../outputFile/jpgRate.txt
+
+			/usr/local/MATLAB/R2016b/bin/matlab -nosplash -nodesktop -r "ssim_1('../Image/$file/$image','output.jpg');quit;"
+		done
+		cd ../Image/$file
+	done
+	cd ..
+done			
+exit 0
