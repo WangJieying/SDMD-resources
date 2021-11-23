@@ -1,4 +1,4 @@
-This software package is the technical support for our paper "Spline-Based Dense Medial Descriptors for Lossy Image
+This [software package](./SourceCode) is the technical support for our paper "Spline-Based Dense Medial Descriptors for Lossy Image
 Compression". 
 
 The whole pipeline of the code is: Given a grayscale image or a color image, we first thresholding it into n (256 for 8-bit images) binary images. For each binary image, or layer that we call, we first remove the small 'island' or noise of it, then we extract its skeletons, then we fit skeletons with B-splines. Then all the control points, degree of each spline, etc will be encoded into 'output.sir' in the imShow file. The SIR file is all we need to store for the original image, which is also used to calculate the compression ratio. All of these steps implemented in the imConvert file, and imShow file is responsible for decode the SIR file and then reconstruct it back to the original image.
