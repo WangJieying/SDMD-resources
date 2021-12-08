@@ -22,8 +22,8 @@ public:
     BSplineCurveFitterWindow3();
     //virtual void OnIdle() override;
     //virtual bool OnCharPress(unsigned char key, int x, int y) override;
-    int SplineFit(vector<vector<Vector3<float>>> BranchSet, float hausdorff_,float diagonal_, int layerNum, vector<int *> connection_,int width, float *smd);
-    void SplineFit2(vector<vector<Vector3<float>>> BranchSet, float hausdorff_, float diagonal_, int layerNum, vector<int *> connection_, int sign, int width, float *smd);
+    int SplineFit(vector<vector<Vector3<float>>> BranchSet, float hausdorff_,float diagonal_, int layerNum, vector<int *> connection_);
+    void SplineFit2(vector<vector<Vector3<float>>> BranchSet, float hausdorff_,float diagonal_, int layerNum, vector<int *> connection_, int sign);
     void SplineGenerate(int SuperR);
 private:
     
@@ -41,8 +41,8 @@ private:
     //void drawSpline();
     void drawControlPoints(Vector3<float> controlPoint);
     void drawControlPointsLine();
-
-    enum { NUM_SAMPLES = 10000};*/
+*/
+    enum { NUM_SAMPLES = 10000};
     vector<Vector3<float>> merge;
     vector<vector<Vector3<float>>> sampleSet;
     unique_ptr<BSplineCurveFit<float>> mSpline = nullptr;

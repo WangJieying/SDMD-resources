@@ -17,40 +17,63 @@
  
 using namespace std;
 #define mDimension 3
+#define colorNum 10000
 
-float *smd_ = nullptr;
-int width_;
-
+int color[colorNum][3];//wang
+ 
+int num = 0, CPNum = 0, cntlSepNum=0,  orignum=0;//how many parts you should draw
+std::shared_ptr<Visual> OrigCurve[10000];//if we put this in .h file, it would cause the error of "corrupted size vs. prev_size". I donot know why.
+std::shared_ptr<Visual> drawSpline[10000];//give enough space first
+std::shared_ptr<Visual> drawControlPoint[1000];
+std::shared_ptr<Visual> drawControlPointl[10000];
+float maxhaus = 0.0f;
+int maxBranch = 0;
 int totalSample = 0;
+int init = 1;//which branch seq you should start with.
 int TotalControlNum; 
-int DeterminedNumControls, DeterminedDegree;
-float minError; 
+int DeterminedNumControls, DeterminedDegree, lastNumCntl;
+float minError; bool connect=0;
 vector<Vector3<float>> controlData(10000);
-
+int countSepCntl = 0;
+float lastx, lasty;
 ofstream OutFile, OutFile1;
 int width, height;
 float minErrorThreshold;
+bool gapfilling;
+//vector<vector<Vector3<float>>> sampleSet(1000);
 float storevector[mDimension]={0,0,0};
 vector<Vector3<float>> controlDataVec(1000);
 unique_ptr<BSplineCurveGenerate<float>> SplineGeneratePtr;
 bool mergeOrNot = false;   
 bool deleteshort = false;
-unsigned int MinAllowableLength = 4;
-
+unsigned int MinAllowableLength = 5;
+/*// 
+BSplineCurveFitterWindow3::BSplineCurveFitterWindow3(vector<vector<Vector3<float>>> BranchSet, float hausdorff_,float diagonal_)
+    :
+    sampleSet(BranchSet)
+{
+    minErrorThreshold = hausdorff_;
+    diagonal = diagonal_;
+    cout<<"good-----!!"<<endl;
+    SplineFit();
+    //generateColor();
+    //CreateScene();
+    //InitializeCamera(60.0f, GetAspectRatio(), 0.1f, 100.0f, 0.01f, 0.001f,
+    //    { 0.0f, 0.0f, -4.0f }, { 0.0f, 0.0f, 1.0f }, { 0.0f, 1.0f, 0.0f });
+    //mPVWMatrices.Update();
+}
+*/
 BSplineCurveFitterWindow3::BSplineCurveFitterWindow3()
 {
     //cout<<"good-----!!"<<endl;
 }
-int BSplineCurveFitterWindow3::SplineFit(vector<vector<Vector3<float>>> BranchSet, float hausdorff_,
-float diagonal_, int layerNum, vector<int *> connection_,int width, float *smd)
+int BSplineCurveFitterWindow3::SplineFit(vector<vector<Vector3<float>>> BranchSet, float hausdorff_,float diagonal_, int layerNum, vector<int *> connection_)
 {
     TotalControlNum = 0;
     sampleSet = BranchSet;
     minErrorThreshold = hausdorff_;
     diagonal = diagonal_;
     connection = connection_;
-    width_ = width;
-    smd_ = smd;
     
     if (mergeOrNot) {Merge();}
 
@@ -59,19 +82,16 @@ float diagonal_, int layerNum, vector<int *> connection_,int width, float *smd)
         if (sampleSet[i].size()>3) 
             CalculateNeededCP(sampleSet[i]);
     }
-    smd_= nullptr; 
+     
     return TotalControlNum; 
 }
 
-void BSplineCurveFitterWindow3::SplineFit2(vector<vector<Vector3<float>>> BranchSet, float hausdorff_,
-float diagonal_, int layerNum, vector<int *> connection_, int sign,int width, float *smd)
+void BSplineCurveFitterWindow3::SplineFit2(vector<vector<Vector3<float>>> BranchSet, float hausdorff_,float diagonal_, int layerNum, vector<int *> connection_, int sign)
 {
     sampleSet = BranchSet;
     minErrorThreshold = hausdorff_;
     diagonal = diagonal_;
     connection = connection_; 
-    width_ = width;
-    smd_ = smd;
     
     if (mergeOrNot) { Merge();}
 
@@ -89,7 +109,6 @@ float diagonal_, int layerNum, vector<int *> connection_, int sign,int width, fl
     }
     OutFile1<<0<<endl;  //end sign for one layer.  
     OutFile1.close(); 
-    smd_= nullptr;
 }
 
 
@@ -194,7 +213,6 @@ float BSplineCurveFitterWindow3::Judge(vector<Vector3<float>> Sample)
     vector<Vector3<float>> SplineSamples(10000);
     
     float CPandError = 0;
-     float factor = 1.0;
     
     unsigned int numSplineSamples = (unsigned int)(numSamples * 1.4);
     //unsigned int numSplineSamples = numSamples; // uniform sampling.
@@ -226,7 +244,6 @@ float BSplineCurveFitterWindow3::Judge(vector<Vector3<float>> Sample)
             float maxLength = 0.0f;
             Vector3<float> diff;
             float sqrLength, minLength;
-            float weight = 0.0;
             for (unsigned int i = 0; i < numSamples; ++i)
             {
                 minLength = 100.0f;
@@ -237,24 +254,19 @@ float BSplineCurveFitterWindow3::Judge(vector<Vector3<float>> Sample)
                     if (sqrLength < minLength) {minLength = sqrLength; if (minLength == 0) break;}
                 }
                 if (minLength > maxLength) maxLength = minLength;
-                if(smd_!= nullptr){
-                    int index = (int)(Sample[i][1]*diagonal) * width_ + (int)(Sample[i][0]*diagonal);
-                    //cout<<Sample[i][0]<<"/ "<<Sample[i][1]<<" ";
-                    weight += pow(2.0, (smd_[index]/255.0 - 1.0));//from 1/2 to 1
-                }
+            
             }
-            if(smd_!= nullptr) factor = weight/(float)numSamples; //saliency factor
             hausdorff = std::sqrt(maxLength);
             if (minError > hausdorff) { minError = hausdorff; minDegree = degree;}
             //cout<<numControls<<" hausdorff: "<<hausdorff<<" degree: "<<degree<<endl;
         }
         //cout<<numControls<<" minError: "<<minError<<" minDegree: "<<minDegree<<endl;
-        if (numControls > 15) //If numControl > 13, it's easy to get crush.
+        if (numControls > 12) //If numControl > 13, it's easy to get crush.
         {
             CPandError = 100;//assign an big enough value
             return CPandError;
         }
-        if (minError < (minErrorThreshold/factor))
+        if (minError < minErrorThreshold)
         {
             DeterminedNumControls = numControls;
             DeterminedDegree = minDegree;
