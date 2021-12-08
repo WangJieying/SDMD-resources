@@ -1,1 +1,2 @@
-Note that all files inside 'Applications', 'Graphics', 'Mathematics' are deleted in this repository since they are really huge. But you can totally download them from https://www.geometrictools.com/Downloads/Downloads.html (GTEngine 5.8 Distribution (ZIP))
+
+Please download this library from https://github.com/WangJieying/GeometricTools-5.8-library
